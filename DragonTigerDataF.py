@@ -148,81 +148,12 @@ countGenerator()
 
 #print(lawan)
 compare(lawan)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
+for gengen in range(20):
+    enemyGenerator()
+    #print(lawanRandom)
+    compare(lawanRandom)
 
 
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-#print(lawanRandom)
-compare(lawanRandom)
 
 
 #summ()
