@@ -153,5 +153,8 @@ for gengen in range(11):
     #print(lawanRandom)
     compare(lawanRandom)
 
+
+
 #summ()
 datFrame()
+

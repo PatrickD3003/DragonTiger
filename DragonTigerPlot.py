@@ -2,6 +2,7 @@ import random
 import math
 import itertools
 import matplotlib.pyplot as plt
+import pandas as pd
 A = [0,1]
 AT = []
 B = list(itertools.combinations_with_replacement(A,5))
@@ -89,25 +90,51 @@ def datFrame():
     # length max m = len(summary[0])-1
     MTCH = []
     KLR = []
-    nomm = []
+
+    for l in range(len(summary)):
+            for m in range(len(summary[0])):
+                MTCH.append(summary[l][m][0])
+                KLR.append(summary[l][m][1])
+                if m == len(summary[0])-1:
+                    dats = {
+                        "match" : MTCH,
+                        "kelar" : KLR
+                    }
+                    df = pd.DataFrame(dats)
+                    print(f'kombinasi ke {l+1} , kombinasi {AT[l]}')
+                    print(df)
+                    MTCH = []
+                    KLR = []
+                    continue
+                else:
+                    continue
+
+def matplot():
+    global summary
+    MTCH_plt = []
+    KLR_plt = []
+    #add text
     for l in range(len(summary)):
         for m in range(len(summary[0])):
-            MTCH.append(summary[l][m][0])
-            KLR.append(summary[l][m][1])
-            nomm.append(m)
-            if m == 10:
-                plt.plot(nomm,MTCH)
+            MTCH_plt.append(summary[l][m][0])
+            KLR_plt.append(summary[l][m][1])
+            if m == len(summary[0])-1:
+
+                plt.plot(MTCH_plt)
                 plt.xlabel("nomer")
                 plt.ylabel("TOTAL MATCH")
                 plt.title(f"kombinasi ke {l+1}")
                 plt.show()
 
-                MTCH = []
-                KLR = []
-                nomm = []
+                MTCH_plt = []
+                KLR_plt = []
                 continue
             else:
                 continue
+            
+
+
+     
 
 """
 import matplotlib.pyplot as plt
@@ -119,6 +146,7 @@ plt.xlabel("x - axis")
 plt.ylabel("y - axis")
 plt.title('my first graph!')
 plt.show()
+
 """            
 
 
@@ -156,13 +184,15 @@ df.to_excel(datatoexcel, sheet_name = f'sheet{1}')
 datatoexcel.save()
 """
 
+#thisisatext added text
+
 
 countGenerator()
 
 #print(lawan)
 compare(lawan)
 
-for engen in range(100):
+for engen in range(10):
     enemyGenerator()
     #print(lawanRandom)
     compare(lawanRandom)
@@ -171,5 +201,6 @@ for engen in range(100):
 
 
 
-summ()
+#summ()
 datFrame()
+matplot()
