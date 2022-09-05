@@ -1,0 +1,47 @@
+"""
+import matplotlib.pyplot as plt
+
+x = [1,2,3]
+y = [2,4,1]
+plt.plot(x,y)
+plt.xlabel("x - axis")
+plt.ylabel("y - axis")
+plt.title('my first graph!')
+plt.show()
+
+"""            
+
+
+
+"""
+                datatoexcel = pd.ExcelWriter('DragonTigerBook.xlsx', engine='xlsxwriter')
+                df.to_excel(datatoexcel, sheet_name = f'Sheet{1}')
+                datatoexcel.save()
+                """
+
+""""
+                MTCH = []
+                KLR = []
+            else:
+                MTCH.append(summary[l][m][0])
+                KLR.append(summary[l][m][1])
+                
+
+
+        dats ={
+            "match" : MTCH,
+            "kelar" : KLR
+        }
+"""
+
+"""
+---------------REFERENSI-------------------
+data = {
+    "babey" : [60,55,40],
+    "weight": [50,43,23] 
+}
+df = pd.DataFrame(data)
+datatoexcel = pd.ExcelWriter('DragonTigerBook.xlsx', engine='xlsxwriter')
+df.to_excel(datatoexcel, sheet_name = f'sheet{1}')
+datatoexcel.save()
+"""
