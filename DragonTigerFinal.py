@@ -74,17 +74,10 @@ countGenerator()
 
 print(lawan)
 compare(lawan)
-
-enemyGenerator()
-print(lawanRandom)
-compare(lawanRandom)
-
-enemyGenerator()
-print(lawanRandom)
-compare(lawanRandom)
+for ex in range(11):
+    enemyGenerator()
+    print(lawanRandom)
+    compare(lawanRandom)
 
 
-enemyGenerator()
-print(lawanRandom)
-compare(lawanRandom)
 
