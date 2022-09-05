@@ -3,6 +3,7 @@ import math
 import itertools
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 A = [0,1]
 AT = []
 B = list(itertools.combinations_with_replacement(A,5))
@@ -101,7 +102,8 @@ def datFrame():
                         "kelar" : KLR
                     }
                     df = pd.DataFrame(dats)
-                    print(f'kombinasi ke {l+1} , {AT[l]}')
+                    DeValue = np.std(MTCH)
+                    print(f'kombinasi ke {l+1} , {AT[l]} Standard Deviation Value : {DeValue}')
                     print(df)
                     MTCH = []
                     KLR = []
@@ -120,7 +122,7 @@ def matplot():
             KLR_plt.append(summary[l][m][1])
             if m == len(summary[0])-1:
 
-                plt.plot(MTCH_plt)
+                plt.plot(MTCH_plt,'ro')
                 plt.xlabel("nomer")
                 plt.ylabel("TOTAL MATCH")
                 plt.title(f"kombinasi ke {l+1}")
