@@ -30,7 +30,7 @@ def compare(siapa):
         
         if i > len(AT)-1:
             break
-        if k > len(siapa)-1:
+        if k > len(siapa)-1 or j > 4 :
                 #print(f"kombinasi ke {i+1}{AT[i]}, banyak match {match}, kelar di {k} WIN THE GAME")
                 summary[i].append([match,k])
                 i += 1
@@ -50,27 +50,7 @@ def compare(siapa):
         elif AT[i][j] != siapa[k]:
             j += 1
             k += 1
-            #kalo lose
-            if j > 4:
-                #print(f"kombinasi ke {i+1}{AT[i]}, banyak match {match}, kelar di {k}")
-                summary[i].append([match,k])
-                i += 1
-                j = 0
-                k = 0
-                match = 0
-                continue
-            elif j > 4 and k > len(siapa)-1:
-                #print(f"kombinasi ke {i+1}{AT[i]}, banyak match {match}, kelar di {k}")
-                summary.append([match,k])
-                if len(summary) == 32:
-                    summary[i].append([match,k])
-                i += 1
-                j = 0
-                k = 0
-                match = 0
-                continue
-            else:
-                continue
+            continue
 
 def enemyGenerator():
     lawanRandom.clear()
@@ -151,4 +131,4 @@ for engen in range(10):
 
 #summ()
 datFrame()
-matplot()
+#matplot()
