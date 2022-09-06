@@ -30,7 +30,7 @@ def compare(siapa):
         
         if i > len(AT)-1:
             break
-        if k > len(siapa)-1 or j > 4 :
+        if ( k > len(siapa)-1 ) or ( j > 4 ) :
                 #print(f"kombinasi ke {i+1}{AT[i]}, banyak match {match}, kelar di {k} WIN THE GAME")
                 summary[i].append([match,k])
                 i += 1
@@ -83,7 +83,8 @@ def datFrame():
                     }
                     df = pd.DataFrame(dats)
                     DeValue = np.std(MTCH)
-                    print(f'kombinasi ke {l+1} , {AT[l]} Standard Deviation Value : {DeValue}')
+                    meValue = np.mean(MTCH)
+                    print(f'kombinasi ke {l+1} , {AT[l]} Standard Deviation Value : {DeValue:.2f}, mean {meValue:.2f}')
                     print(df)
                     MTCH = []
                     KLR = []
@@ -131,4 +132,4 @@ for engen in range(10):
 
 #summ()
 datFrame()
-#matplot()
+matplot()
