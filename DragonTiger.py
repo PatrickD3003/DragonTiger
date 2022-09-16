@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 A = [0,1]
 AT = []
-digit_combination = 10
+digit_combination = 6
 B = list(itertools.combinations_with_replacement(A, digit_combination))
 n = pow(2, digit_combination)
 lawan = [0,0,1,1,1,0,0,0,1,0,1,0,0,0,0,2,0,1,0,0,0,0,0,1,1,0,0,2,0,0,0,0,0,0,1,0,1,1,1,1,1,1,0,1,0,2,0,1,1,1,1,0,0,0,2,1,1,0,1,0,1,1,1,1,0,2,0,1,0,1,0,0,0,0,1,0,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,2,0,2,1,0,1,1,1,0,0,0,0,1,1,0,1,0,0,0,0,0,1,0,0,2,0,1,0,1,0,1,1,1,0,0,1,0,2,1,0,1,1,1,1,1,1,1,1,0,0,0,1]
@@ -32,7 +32,7 @@ def compare(siapa):
         
         if i > len(AT)-1:
             break
-        if ( k > len(siapa)-1 ) or ( j > 4 ) :
+        if ( k > len(siapa)-1 ) or ( j > len(AT[0])-1 ) :
                 #print(f"kombinasi ke {i+1}{AT[i]}, banyak match {match}, kelar di {k} WIN THE GAME")
                 summary[i].append([match,k])
                 i += 1
@@ -134,4 +134,4 @@ for engen in range(10):
 
 #summ()
 datFrame()
-matplot()
+#matplot()
