@@ -7,6 +7,8 @@ import numpy as np
 A = [0,1]
 AT = []
 digit_combination = 6
+define_looser = 5
+number_of_matches = 29
 B = list(itertools.combinations_with_replacement(A, digit_combination))
 n = pow(2, digit_combination)
 lawan = [0,0,1,1,1,0,0,0,1,0,1,0,0,0,0,2,0,1,0,0,0,0,0,1,1,0,0,2,0,0,0,0,0,0,1,0,1,1,1,1,1,1,0,1,0,2,0,1,1,1,1,0,0,0,2,1,1,0,1,0,1,1,1,1,0,2,0,1,0,1,0,0,0,0,1,0,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,2,0,2,1,0,1,1,1,0,0,0,0,1,1,0,1,0,0,0,0,0,1,0,0,2,0,1,0,1,0,1,1,1,0,0,1,0,2,1,0,1,1,1,1,1,1,1,1,0,0,0,1]
@@ -68,16 +70,21 @@ def summ():
         print(f"kombinasi nomor {i+1} {AT[i]} : {j}")
 
 def datFrame():
-    global summary
+    global summary, define_looser
     # length max l = len(summary)-1 = 31
     # length max m = len(summary[0])-1
     MTCH = []
     KLR = []
-
+    LSR = 0
+    looser_value = 0
     for l in range(len(summary)):
             for m in range(len(summary[0])):
                 MTCH.append(summary[l][m][0])
                 KLR.append(summary[l][m][1])
+
+                if summary[l][m][0] < define_looser:
+                    LSR += 1
+
                 if m == len(summary[0])-1:
                     dats = {
                         "match" : MTCH,
@@ -86,10 +93,17 @@ def datFrame():
                     df = pd.DataFrame(dats)
                     DeValue = np.std(MTCH)
                     meValue = np.mean(MTCH)
+
+                    looser_value = LSR / len(summary[0]) * 100
+
+
                     print(f'kombinasi ke {l+1} , {AT[l]} Standard Deviation Value : {DeValue:.2f}, mean {meValue:.2f}')
+                    print(f'looser percentage = {looser_value:.2f}%, {LSR} looser out of {number_of_matches+1} matches')
                     print(df)
                     MTCH = []
                     KLR = []
+                    looser_value = 0
+                    LSR = 0
                     continue
                 else:
                     continue
@@ -117,13 +131,12 @@ def matplot():
             else:
                 continue
 
-
 countGenerator()
 
 #print(lawan)
 compare(lawan)
 
-for engen in range(10):
+for engen in range(number_of_matches):
     enemyGenerator()
     #print(lawanRandom)
     compare(lawanRandom)
