@@ -6,10 +6,12 @@ import pandas as pd
 import numpy as np
 A = [0,1]
 AT = []
-B = list(itertools.combinations_with_replacement(A,5))
+digit_combination = 10
+B = list(itertools.combinations_with_replacement(A, digit_combination))
+n = pow(2, digit_combination)
 lawan = [0,0,1,1,1,0,0,0,1,0,1,0,0,0,0,2,0,1,0,0,0,0,0,1,1,0,0,2,0,0,0,0,0,0,1,0,1,1,1,1,1,1,0,1,0,2,0,1,1,1,1,0,0,0,2,1,1,0,1,0,1,1,1,1,0,2,0,1,0,1,0,0,0,0,1,0,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,2,0,2,1,0,1,1,1,0,0,0,0,1,1,0,1,0,0,0,0,0,1,0,0,2,0,1,0,1,0,1,1,1,0,0,1,0,2,1,0,1,1,1,1,1,1,1,1,0,0,0,1]
 lawanRandom = []
-summary = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
+summary = [[] for _ in range(n)] 
 def countGenerator():
     global A,AT
     for i in B:
