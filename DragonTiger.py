@@ -4,10 +4,12 @@ import itertools
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+
+
 A = [0,1]
 AT = []
-digit_combination = 6
-define_looser = 5
+digit_combination = 5
+define_looser = 8
 number_of_matches = 29
 B = list(itertools.combinations_with_replacement(A, digit_combination))
 n = pow(2, digit_combination)
@@ -131,9 +133,36 @@ def matplot():
             else:
                 continue
 
-countGenerator()
+def summary_texts():
+    global summary, define_looser
+    MTCH_txt = []
+    LSR = 0
+    looser_value = 0
+    for l in range(len(summary)):
+        for m in range(len(summary[0])):
+            MTCH_txt.append(summary[l][m][0])
+            if summary[l][m][0] < define_looser:
+                LSR += 1
+            if m == len(summary[0])-1:
+                DeValue = np.std(MTCH_txt)
+                meValue = np.mean(MTCH_txt)
 
-#print(lawan)
+                looser_value = LSR / len(summary[0]) * 100
+
+
+                print(f'kombinasi ke {l+1} , {AT[l]} Standard Deviation Value : {DeValue:.2f}, mean {meValue:.2f}')
+                print(f'looser percentage = {looser_value:.2f}%, {LSR} looser out of {number_of_matches+1} matches')
+                print()
+                MTCH_txt = []
+                looser_value = 0
+                LSR = 0
+                continue
+            else:
+                continue
+
+
+
+countGenerator()
 compare(lawan)
 
 for engen in range(number_of_matches):
@@ -146,5 +175,6 @@ for engen in range(number_of_matches):
 
 
 #summ()
+#summary_texts()
 datFrame()
 #matplot()
