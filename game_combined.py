@@ -5,9 +5,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-
-all_loosers = []
-
 lawan = [0,0,1,1,1,0,0,0,1,0,1,0,0,0,0,2,0,1,0,0,0,0,0,1,1,0,0,2,0,0,0,0,0,0,1,0,1,1,1,1,1,1,0,1,0,2,0,1,1,
 1,1,0,0,0,2,1,1,0,1,0,1,1,1,1,0,2,0,1,0,1,0,0,0,0,1,0,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,2,0,2,1,0,1,1,1,0,0,0,
 0,1,1,0,1,0,0,0,0,0,1,0,0,2,0,1,0,1,0,1,1,1,0,0,1,0,2,1,0,1,1,1,1,1,1,1,1,0,0,0,1]
@@ -67,13 +64,13 @@ def enemy_generator():
         enemy_generator.lawan_random.append(random_generator)
 
 def data_frame():
-    global all_loosers
     # length max l = len(summary)-1 = 31
     # length max m = len(summary[0])-1
     MTCH = []
     KLR = []
     LSR = 0
     looser_value = 0
+    data_frame.all_loosers = []
     for l in range(len(sum_generator.summary)):
             for m in range(len(sum_generator.summary[0])):
                 MTCH.append(sum_generator.summary[l][m][0])
@@ -92,7 +89,7 @@ def data_frame():
                     meValue = np.mean(MTCH)
 
                     looser_value = LSR / len(sum_generator.summary[0]) * 100
-                    all_loosers.append(looser_value)
+                    data_frame.all_loosers.append(looser_value)
 
 
                     print(f'kombinasi ke {l+1} , {count_generator.combination[l]} Standard Deviation Value : {DeValue:.2f}, mean {meValue:.2f}')
@@ -147,8 +144,7 @@ def capital_binom():
     print(f"{capital:,} capital, {match_amount:.2f} match, with {binom_calc:.2f}% success rate")
     
 def mean_lost():
-    global all_loosers
-    mean_loosers = np.mean(all_loosers)
+    mean_loosers = np.mean(data_frame.all_loosers)
     print(f"{mean_loosers:.2f}% lose mean, {100-mean_loosers:.2f}% win mean")
 
 def matches_engine():
