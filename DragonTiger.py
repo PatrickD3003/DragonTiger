@@ -7,7 +7,7 @@ import numpy as np
 
 A = [0,1]
 AT = []
-digit_combination = 5
+digit_combination = 4
 define_looser = 5
 number_of_matches = 29
 B = list(itertools.combinations_with_replacement(A, digit_combination))

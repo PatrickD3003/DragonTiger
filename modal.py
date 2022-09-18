@@ -13,7 +13,9 @@ def capital_binom():
     binom_calc = pow(one_trial_success, match_amount) * 100
     print()
     print(f"{goal_money:,} income goal, {bet_money:,} betting amount, {digit_combination} digit combination")
-    print(f"{capital:,} capital, {match_amount} match, with {binom_calc:.2f}% success rate")
+    print(f"{capital:,} capital, {match_amount:.2f} match, with {binom_calc:.2f}% success rate")
+    
+
 
 while True:
     capital_binom()
